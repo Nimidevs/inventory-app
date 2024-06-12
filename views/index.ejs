@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Gun Shop</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    nav {
+      margin: 1rem 10rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #2c3e50;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    nav div {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav>a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: large;
+      color: #ecf0f1;
+    }
+
+    nav div a {
+      background-color: #34495e;
+      color: #ecf0f1;
+      text-decoration: none;
+      padding: .5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    nav div a:hover {
+      background-color: #2980b9;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem;
+      /* background-image: url('/images/gunshop.jpg'); */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      /* background-color: rgba(0, 0, 0, 0.5); */
+      background-blend-mode: darken;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    main {
+      margin: 2rem 10rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* Corrected grid syntax */
+      grid-template-rows: repeat(2, 1fr);
+      /* Corrected grid syntax */
+      gap: 1.5rem;
+    }
+
+    .category-card {
+      background-color: #ecf0f1;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-card h2 {
+      margin: 0.5rem 0;
+      color: #2c3e50;
+    }
+
+    .category-card p {
+      margin: 0.5rem 0 1rem 0;
+      text-align: center;
+      color: #7f8c8d;
+    }
+
+    .category-card a {
+      background-color: #2980b9;
+      color: #ecf0f1;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .category-card a:hover {
+      background-color: #1abc9c;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/inventory">
+      <h3>Gun Shop</h3>
+    </a>
+    <div>
+      <a href="/inventory/categories">Categories</a>
+      <a href="/inventory/items">Guns (Items)</a>
+    </div>
+  </nav>
+  <header>
+    <h1>Welcome to the Gun Shop</h1>
+    <p>Your one-stop shop for all types of firearms and accessories</p>
+  </header>
+  <main>
+    <% categories.forEach(function(category){ %>
+      <div class="category-card">
+        <h2><%= category.name %></h2>
+        <p><%= category.description %></p>
+        <a href=<%=category.url%>>Explore <%= category.name %></a>
+      </div>
+      <% }); %>
+        <!-- <div class="category-card">
+          <h2>Handguns</h2>
+          <p>Compact and easy to carry, perfect for personal defense and law enforcement.</p>
+          <a href="/inventory/categories/handguns">Explore Handguns</a>
+        </div>
+        <div class="category-card">
+          <h2>Rifles</h2>
+          <p>Long-range precision and power, ideal for hunting and sport shooting.</p>
+          <a href="/inventory/categories/rifles">Explore Rifles</a>
+        </div>
+        <div class="category-card">
+          <h2>Shotguns</h2>
+          <p>Versatile firearms for hunting, sport shooting, and home defense.</p>
+          <a href="/inventory/categories/shotguns">Explore Shotguns</a>
+        </div>
+        <div class="category-card">
+          <h2>Submachine Guns</h2>
+          <p>High-quality submachine Guns for all.</p>
+          <a href="/inventory/categories/Submachine Guns">Explore Submachine Guns</a>
+        </div>
+        <div class="category-card">
+          <h2>Assault Rifles</h2>
+          <p>Bad ass Assault Rifles up for sale..</p>
+          <a href="/inventory/categories/Assault Rifles">Explore Assault Rifles</a>
+        </div>
+        <div class="category-card">
+          <h2>Revolvers</h2>
+          <p>Wild west out here with these Revolvers..</p>
+          <a href="/inventory/categories/Assault Rifles">Explore Revolvers</a>
+        </div> -->
+  </main>
+</body>
+
+</html>

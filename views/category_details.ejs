@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Category Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+        }
+
+        nav {
+            margin: 1rem 10rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav div {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav>a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: large;
+            color: black;
+        }
+
+        nav div a {
+            background-color: rgb(48, 18, 48);
+            color: rgb(207, 206, 206);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+
+        h1,
+        h3 {
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        li {
+            background-color: #ecf0f1;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+            display: block;
+        }
+
+        a:hover {
+            color: #1abc9c;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/inventory">
+            <h3>Gun Shop</h3>
+        </a>
+        <div>
+            <a href="/inventory/categories">Categories</a>
+            <a href="/inventory/items">Guns (Items)</a>
+            <a href="<%= category.url %>/update">Update Category</a>
+            <a href="<%= category.url %>/delete" style="color: red;">Delete Category</a>
+        </div>
+    </nav>
+
+    <h1>
+        <%= category.name %>
+    </h1>
+    <p>
+        <%= category.description %>
+    </p>
+
+    <h3>Items in <%= category.name %> Category</h3>
+
+    <ul>
+        <% guns.forEach(function(gun){ %>
+            <li>
+                <a href="<%= gun.url %>">
+                    <%= gun.name %>
+                </a>
+            </li>
+            <% }); %>
+    </ul>
+</body>
+
+</html>

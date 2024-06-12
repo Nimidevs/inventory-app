@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        nav {
+            margin: 1rem 10rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav div {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav > a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: large;
+            color: black;
+        }
+
+        nav div a {
+            background-color: rgb(48, 18, 48);
+            color: rgb(207, 206, 206);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #1abc9c;
+        }
+        .add-item-button {
+            background-color: #2980b9;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-item-button:hover {
+            background-color: #1abc9c;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/inventory"><h3>Gun Shop</h3></a>
+        <div>
+            <a href="/inventory/categories">Categories</a>
+            <a href="/inventory/items">Guns (Items)</a>
+            <a href="/inventory/item/add" class="add-item-button">Add New Gun (Items)</a>
+        </div>
+    </nav>
+    <h1>The following is a list of weapons available in our inventory, enjoy.</h1>
+    <ul>
+        <% items.forEach(function(item){ %>
+            <li>
+                <a href="<%= item.url %>"><%= item.name %></a>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

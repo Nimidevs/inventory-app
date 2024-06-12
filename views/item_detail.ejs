@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= item.name %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            margin: 1rem 10rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav div {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav > a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: large;
+            color: black;
+        }
+
+        nav div a {
+            background-color: rgb(48, 18, 48);
+            color: rgb(207, 206, 206);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .item-container {
+            background-color: #ecf0f1;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .item-detail {
+            margin-bottom: 1rem;
+        }
+
+        .item-price, .item-stock {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .item-category {
+            color: #2980b9;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .item-category a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .item-category a:hover {
+            color: #1abc9c;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/inventory">
+            <h3>Gun Shop</h3>
+        </a>
+        <div>
+            <a href="/inventory/categories">Categories</a>
+            <a href="/inventory/items">Guns (Items)</a>
+            <a href="<%= item.url %>/update">Update Gun (Items)</a>
+            <a href="<%= item.url %>/delete" style="color: red;">Delete Item</a>
+        </div>
+    </nav>
+    <div class="body">
+        <h1><%= item.name %></h1>
+        <div class="item-container">
+            <p class="item-detail"><%= item.description %></p>
+            <p class="item-price">Price: $<%= item.price %></p>
+            <p class="item-stock">In Stock: <%= item.no_in_stock %> units</p>
+            <% item.category.forEach(function(category) { %>
+                <p class="item-category">
+                    Category: <a href="<%= category.url %>"><%= category.name %></a>
+                </p>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>
