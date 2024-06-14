@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        form {
+            background-color: #ecf0f1;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 90%;
+        }
+        input[type="password"] {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        button[type="submit"] {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .success-message {
+            color: green;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <form action="" method="post">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <button type="submit">Submit</button>
+        
+        <% if (typeof status !=='undefined') { %>
+            <p class="success-message"><%= status %></p>
+        <% } else if (typeof error !=='undefined') { %>
+            <p class="error-message"><%= error %></p>
+        <% } %>
+    </form>
+</body>
+</html>

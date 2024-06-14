@@ -27,9 +27,15 @@ router.get('/category/:id', category_controller.category_detail)
 //routing to the form to new items
 router.get('/item/add', item_controller.item_create_get)
 router.post('/item/add', item_controller.item_create_post)
+//Routing to admin confirmation form
+router.get('/item/:id/confirmupdate', item_controller.admin_update_confirmation_get)
+router.post('/item/:id/confirmupdate', item_controller.admin_update_confirmation_post)
 //Routing to update items
 router.get('/item/:id/update', item_controller.item_update_get)
 router.post('/item/:id/update', item_controller.item_update_post)
+//ROuting to admin confirmation form
+router.get('/item/:id/confirmdelete', item_controller.admin_delete_confirmation_get)
+router.post('/item/:id/confirmdelete', item_controller.admin_delete_confirmation_post)
 //Routing to Delete Items
 router.get('/item/:id/delete', item_controller.item_delete_get)
 router.post('/item/:id/delete', item_controller.item_delete_post)

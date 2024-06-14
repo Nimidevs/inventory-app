@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title><%= item.name %></title>
     <style>
         body {
@@ -11,14 +12,11 @@
             padding: 2rem;
             display: flex;
             flex-direction: column;
-        }
-        .body{
-            display: flex;
-            flex-direction: column;
             align-items: center;
         }
-
+        
         nav {
+            width: 100%;
             margin: 1rem 10rem;
             display: flex;
             flex-direction: row;
@@ -46,6 +44,15 @@
             border-radius: 5px;
         }
 
+        .body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 2rem;
+        }
+
         h1 {
             color: #2c3e50;
             margin-bottom: 1rem;
@@ -56,7 +63,7 @@
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%;
+            width: 100%;
             max-width: 600px;
         }
 
@@ -84,6 +91,14 @@
         .item-category a:hover {
             color: #1abc9c;
         }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -94,12 +109,15 @@
         <div>
             <a href="/inventory/categories">Categories</a>
             <a href="/inventory/items">Guns (Items)</a>
-            <a href="<%= item.url %>/update">Update Gun (Items)</a>
-            <a href="<%= item.url %>/delete" style="color: red;">Delete Item</a>
+            <a href="<%= item.url %>/confirmupdate">Update Gun (Items)</a>
+            <a href="<%= item.url %>/confirmdelete" style="color: red;">Delete Item</a>
         </div>
     </nav>
     <div class="body">
         <h1><%= item.name %></h1>
+        <% if (item.item_image_url) { %>
+            <img src="<%= item.item_image_url %>" alt="<%= item.name %>">
+        <% } %>
         <div class="item-container">
             <p class="item-detail"><%= item.description %></p>
             <p class="item-price">Price: $<%= item.price %></p>
